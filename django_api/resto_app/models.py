@@ -60,7 +60,7 @@ class JobApplication(models.Model):
     surname = models.CharField(max_length=255)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
-    position = models.CharField(max_length=255)
+    position = models.ForeignKey(JobOpening, on_delete=models.CASCADE)
     interview_date = models.DateTimeField()
     cv_link = models.URLField()
 
