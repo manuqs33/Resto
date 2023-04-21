@@ -1,4 +1,4 @@
-export default function StartPage() {
+export function StartPage() {
   return (
     <div>StartPage</div>
   )

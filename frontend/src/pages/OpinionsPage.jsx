@@ -1,4 +1,4 @@
-export default function OpinionsPage() {
+export function OpinionsPage() {
   return (
     <div>OpinionsPage</div>
   )

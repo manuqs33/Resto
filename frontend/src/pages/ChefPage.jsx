@@ -1,4 +1,4 @@
-export default function ChefPage() {
+export function ChefPage() {
   return (
     <div>ChefPage</div>
   )

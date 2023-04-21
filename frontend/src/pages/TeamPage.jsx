@@ -1,4 +1,4 @@
-export default function TeamPage() {
+export function TeamPage() {
   return (
     <div>TeamPage</div>
   )
