@@ -19,7 +19,7 @@ function App() {
         <Route path="/team" element={<TeamPage/>} />
         <Route path="/opinions" element={<OpinionsPage/>} />
         <Route path="/jobopenings"  element={<JobOpeningsPage/>} />
-        <Route path="/menus" element={<MenusPage/>} /> 
+        <Route path="/menus" element={<MenusPage/>} />
       </Routes>
     </BrowserRouter>
   )

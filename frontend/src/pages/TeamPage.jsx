@@ -11,20 +11,24 @@ export function TeamPage() {
   }, []);
 
   return (
-    <div className='TeamPage'>
-      <h1>Conoce al equipo</h1>
-      <h3>Nuestros expertos</h3>
-      <p>El equipo de TestRestaurant es responsable de que la magia suceda cada día.
-        Ellos son la principal razón por la cual nuestros comensales deciden regresar.
-        Echa un vistazo y conócelos un poco más.</p>
-      {employees.map(employee => (
-        <div key={employee.id}>
-          <img src={employee.image} alt={employee.name} />
-          <h2>{employee.name}</h2>
-          <h3>{employee.title}</h3>
-          <p>{employee.description}</p>
+    <section className="section TeamPage">
+      <div className="container is-max-desktop">
+        <div className='content'>
+          <h1>Conoce al equipo</h1>
+          <h4>Nuestros expertos</h4>
+          <p>El equipo de TestRestaurant es responsable de que la magia suceda cada día.
+            Ellos son la principal razón por la cual nuestros comensales deciden regresar.
+            Echa un vistazo y conócelos un poco más.</p>
+          {employees.map(employee => (
+            <div key={employee.id}>
+              <img src={employee.image} alt={employee.name} />
+              <h3>{employee.name}</h3>
+              <h5>{employee.job_title}</h5>
+              <p>{employee.description}</p>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    </section>
   );
 }
