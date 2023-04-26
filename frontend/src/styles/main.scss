@@ -1,7 +1,10 @@
 @import "fonts";
 
-$blue1: rgb(40, 66, 95);
+$blue: rgb(40, 66, 95);
 $text: rgb(255, 238, 224);
+$dark-blue: rgb(6,39,58);
+$brown: rgb(149,110,70);
+$beige: rgb(255,254,248);
 
 body {
     font-family: 'Cormorant Garamond', serif;
@@ -13,7 +16,7 @@ body {
 }
 
 .TeamPage {
-    background-color: $blue1;
+    background-color: $blue;
     text-align: center;
     vertical-align: baseline;
 }
