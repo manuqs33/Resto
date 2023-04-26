@@ -23,7 +23,7 @@ export function TeamPage() {
             <div key={employee.id}>
               <img src={employee.image} alt={employee.name} />
               <h3>{employee.name}</h3>
-              <h5>{employee.job_title}</h5>
+              <h4>{employee.job_title}</h4>
               <p>{employee.description}</p>
             </div>
           ))}
