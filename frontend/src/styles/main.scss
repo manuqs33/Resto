@@ -8,11 +8,14 @@ $beige: rgb(255,254,248);
 
 body {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
 
-    p {
+    p, a {
         font-family: 'Raleway', sans-serif;
     }
+}
+
+section.section {
+    padding-bottom: 6rem;
 }
 
 .TeamPage {
@@ -48,4 +51,35 @@ body {
 footer.footer {
     background-color: $dark-blue;
     color: $text;
+    padding-bottom: 4rem;
+}
+
+nav.navbar {
+    padding-inline: 6rem;
+    padding-block: 1.5rem;
+    background-color: $dark-blue;
+    color: $text;
+
+    a.navbar-item{
+        color: $text;
+    }
+    a.navbar-item:hover{
+        color: $dark-blue;
+    }
+    a.navbar-item:focus{
+        color: $dark-blue;
+    }
+    a.navbar-burger{
+        color: $text;
+    }
+    .navbar-brand {
+        .navbar-item {
+            padding: 0;
+        }
+    }
+    .navbar-end {
+        a.navbar-item {
+            padding-block: 0;
+        }
+    }
 }
