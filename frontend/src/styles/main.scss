@@ -8,9 +8,15 @@ $beige: rgb(255,254,248);
 
 body {
     font-family: 'Cormorant Garamond', serif;
-
-    p, a {
+    
+    p, a, h4 {
         font-family: 'Raleway', sans-serif;
+    }
+    .content h1 {
+        font-size: 40px;
+    }
+    .content h4 {
+        font-weight: 400;
     }
 }
 
@@ -26,13 +32,7 @@ section.section {
 
 .TeamPage .content {
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    p,
-    a {
+    h1, h2, h3, h4, h5, p, a {
         color: $text;
     }
 }
@@ -45,6 +45,26 @@ section.section {
 
     h1 {
         margin-top: 4rem;
+    }
+}
+
+.StaticPage .content {
+
+    h1, h2, h3, h4, h5, p, a {
+        color: $dark-blue;
+    }
+}
+
+
+section.section.StaticPage {
+    background-color: $blue;
+    .container {
+        padding-top: 3rem;
+        padding-bottom: 7rem;
+        background-color: $beige;
+    }
+    .container.ChefPage {
+        padding-bottom: 11rem;
     }
 }
 
