@@ -21,7 +21,7 @@ body {
 }
 
 section.section {
-    padding-bottom: 6rem;
+    padding-block: 4.5rem;
 }
 
 .TeamPage {
@@ -65,6 +65,21 @@ section.section.StaticPage {
     }
     .container.ChefPage {
         padding-bottom: 11rem;
+    }
+}
+
+.section.StartPage-hero {
+    background-color: $blue;
+    color: $text;
+    text-align: center;
+    .columns {
+        align-items: center;
+    }
+    h1 {
+        font-size: 72px;
+    }
+    p {
+        font-size: 20px;
     }
 }
 
