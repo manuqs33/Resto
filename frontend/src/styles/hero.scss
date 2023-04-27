@@ -1,0 +1,19 @@
+@import 'colors';
+
+.section.Hero {
+    background-color: $blue;
+    color: $text;
+    text-align: center;
+
+    .columns {
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 72px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}

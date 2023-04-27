@@ -1,8 +1,14 @@
-import anfitrion from '../assets/anfitrion.webp'
+
 import { Hero } from '../components/Hero'
+import { Banner } from '../components/Banner'
+import { RecommendendDishes } from '../components/RecommendendDishes'
 
 export function StartPage() {
   return (
-    <Hero/>
+    <>
+    <Hero />
+    <Banner />
+    <RecommendendDishes />
+    </>
   )
 }
