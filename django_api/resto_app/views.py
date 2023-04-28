@@ -1,8 +1,23 @@
-from rest_framework.viewsets import ModelViewSet
-from .serializers import MessageSerializer, EmployeeSerializer, JobApplicationSerializer, JobOpeningSerializer, ReviewSerializer, DishSerializer
-from .models import Message, Employee, Dish, JobApplication, JobOpening, Review
+from .serializers import (
+    MessageSerializer,
+    SendMessageSerializer, 
+    EmployeeSerializer, 
+    JobApplicationSerializer, 
+    JobOpeningSerializer, 
+    ReviewSerializer, 
+    DishSerializer,
+)
+from .models import (
+    Message,
+    Employee, 
+    Dish, 
+    JobApplication, 
+    JobOpening, 
+    Review,
+)
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
 
 
 class MessageViewSet(ModelViewSet):
@@ -10,6 +25,18 @@ class MessageViewSet(ModelViewSet):
     serializer_class = MessageSerializer
     http_method_names = ['get', 'post', 'put']
 
+    def get_serializer_class(self):
+        if self.action == 'post':
+            return SendMessageSerializer
+        else:
+            return MessageSerializer
+
+    @action(detail=False, methods=['post'])
+    def perform_create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid()
+        # serializer.send_mail()
+        return Response(serializer.data)
 
 class EmployeeViewSet(ModelViewSet):
     queryset = Employee.objects.all()
