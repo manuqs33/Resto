@@ -1,53 +1,78 @@
+import axios from 'axios'
+import { useState } from 'react'
+
 export function MessageForm() {
+    const [formData, setFormData] = useState({})
+
+    function handleChange(event) {
+        const { name, value } = event.target
+        setFormData({ ...formData, [name]: value })
+    }
+
+    async function handleSubmit(event) {
+        event.preventDefault()
+        const response = await axios.post('/api/messages', formData)
+        console.log(response)
+    }
+
     return (
-        <form>
-            <div className="field">
-                <label className="label">Name</label>
-                <div className="control">
-                    <input className="input" type="text" name="name" placeholder="Your name" />
+        <form className="message-form" onSubmit={handleSubmit}>
+            <div className="columns">
+                <div className="column is-one-half">
+                    <div className="field">
+                        <label className="label">Nombre</label>
+                        <div className="control">
+                            <input className="input" type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Tu nombre" />
+                        </div>
+                    </div>
+
+                    <div className="field">
+                        <label className="label">Dirección</label>
+                        <div className="control">
+                            <input className="input" type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Tu dirección" />
+                        </div>
+                    </div>
+                </div>
+                <div className="column is-one-half">
+
+                    <div className="field">
+                        <label className="label">Email</label>
+                        <div className="control">
+                            <input className="input" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
+                        </div>
+                    </div>
+
+                    <div className="field">
+                        <label className="label">Teléfono</label>
+                        <div className="control">
+                            <input className="input" type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Tu número de teléfono" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div className="field">
-                <label className="label">Address</label>
+                <label className="label">Asunto</label>
                 <div className="control">
-                    <input className="input" type="text" name="address" placeholder="Your address" />
+                    <input className="input" type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="Asunto de tu mensaje" />
                 </div>
             </div>
 
             <div className="field">
-                <label className="label">Email</label>
+                <label className="label">Mensaje</label>
                 <div className="control">
-                    <input className="input" type="email" name="email" placeholder="Your email address" />
-                </div>
-            </div>
-
-            <div className="field">
-                <label className="label">Phone</label>
-                <div className="control">
-                    <input className="input" type="tel" name="phone" placeholder="Your phone number" />
-                </div>
-            </div>
-
-            <div className="field">
-                <label className="label">Subject</label>
-                <div className="control">
-                    <input className="input" type="text" name="subject" placeholder="Subject of your message" />
-                </div>
-            </div>
-
-            <div className="field">
-                <label className="label">Message</label>
-                <div className="control">
-                    <textarea className="textarea" name="message_text" placeholder="Your message"></textarea>
+                    <textarea className="textarea" name="message_text" value={formData.message_text} onChange={handleChange} placeholder="Tu mensaje"></textarea>
                 </div>
             </div>
 
             <div className="field">
                 <div className="control">
-                    <button className="button is-primary" type="submit">Send</button>
+                    <div className="buttons is-right">
+                        <button className="button is-medium message-form-button" type="submit">Enviar</button>
+                    </div>
                 </div>
             </div>
+
         </form>
     )
 }
