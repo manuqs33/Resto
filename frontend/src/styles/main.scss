@@ -11,11 +11,12 @@
 body {
     font-family: 'Cormorant Garamond', serif;
 
-    p,
-    a,
-    h4,
-    button {
+    p, a, h4, button, label, input {
         font-family: 'Raleway', sans-serif;
+    }
+
+    label.label {
+        font-weight: 600;
     }
 
     .content h1 {
