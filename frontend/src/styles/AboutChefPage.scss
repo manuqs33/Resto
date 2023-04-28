@@ -1,0 +1,23 @@
+@import 'colors';
+
+.StaticPage .content {
+
+    h1, h2, h3, h4, h5, p, a {
+        color: $dark-blue;
+    }
+}
+
+
+section.section.StaticPage {
+    background-color: $blue;
+
+    .container {
+        padding-top: 3rem;
+        padding-bottom: 7rem;
+        background-color: $beige;
+    }
+
+    .container.ChefPage {
+        padding-bottom: 11rem;
+    }
+}

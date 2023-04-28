@@ -1,0 +1,26 @@
+@import 'colors';
+
+section.section.Banner {
+    background-color: $text;
+    color: $text;
+    text-align: center;
+
+    @include desktop {
+        padding-inline: 80px;
+    }
+
+    .container {
+        background-color: $dark-blue;
+        padding-block: 3rem;
+
+
+        .content h1 {
+            color: $text;
+        }
+    }
+
+    .contact-button {
+        background-color: $text;
+        margin-top: 2rem;
+    }
+}

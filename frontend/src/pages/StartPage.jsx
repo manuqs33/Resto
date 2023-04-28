@@ -1,5 +1,14 @@
+
+import { Hero } from '../components/Hero'
+import { Banner } from '../components/Banner'
+import { RecommendendDishes } from '../components/RecommendendDishes'
+
 export function StartPage() {
   return (
-    <div>StartPage</div>
+    <>
+    <Hero />
+    <Banner />
+    <RecommendendDishes />
+    </>
   )
 }

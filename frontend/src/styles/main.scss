@@ -1,72 +1,36 @@
 @import "fonts";
-
-$blue: rgb(40, 66, 95);
-$text: rgb(255, 238, 224);
-$dark-blue: rgb(6,39,58);
-$brown: rgb(149,110,70);
-$beige: rgb(255,254,248);
+@import '../../node_modules/bulma/bulma.sass';
+@import 'navbar';
+@import 'colors';
+@import 'banner';
+@import 'TeamPage';
+@import 'hero';
+@import 'recommendeddishes';
+@import 'AboutChefPage';
 
 body {
     font-family: 'Cormorant Garamond', serif;
-    
-    p, a, h4 {
+
+    p,
+    a,
+    h4,
+    button {
         font-family: 'Raleway', sans-serif;
     }
+
     .content h1 {
         font-size: 40px;
     }
+
     .content h4 {
         font-weight: 400;
     }
 }
 
 section.section {
-    padding-bottom: 6rem;
+    padding-block: 4.5rem;
 }
 
-.TeamPage {
-    background-color: $blue;
-    text-align: center;
-    vertical-align: baseline;
-}
-
-.TeamPage .content {
-
-    h1, h2, h3, h4, h5, p, a {
-        color: $text;
-    }
-}
-
-.TeamPage {
-
-    img {
-        margin-top: 8rem;
-    }
-
-    h1 {
-        margin-top: 4rem;
-    }
-}
-
-.StaticPage .content {
-
-    h1, h2, h3, h4, h5, p, a {
-        color: $dark-blue;
-    }
-}
-
-
-section.section.StaticPage {
-    background-color: $blue;
-    .container {
-        padding-top: 3rem;
-        padding-bottom: 7rem;
-        background-color: $beige;
-    }
-    .container.ChefPage {
-        padding-bottom: 11rem;
-    }
-}
 
 footer.footer {
     background-color: $dark-blue;
@@ -74,32 +38,3 @@ footer.footer {
     padding-bottom: 4rem;
 }
 
-nav.navbar {
-    padding-inline: 6rem;
-    padding-block: 1.5rem;
-    background-color: $dark-blue;
-    color: $text;
-
-    a.navbar-item{
-        color: $text;
-    }
-    a.navbar-item:hover{
-        color: $dark-blue;
-    }
-    a.navbar-item:focus{
-        color: $dark-blue;
-    }
-    a.navbar-burger{
-        color: $text;
-    }
-    .navbar-brand {
-        .navbar-item {
-            padding: 0;
-        }
-    }
-    .navbar-end {
-        a.navbar-item {
-            padding-block: 0;
-        }
-    }
-}
