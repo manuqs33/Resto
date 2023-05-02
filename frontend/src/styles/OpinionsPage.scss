@@ -1,0 +1,27 @@
+@import 'colors';
+
+.OpinionsPage {
+    background-color: $blue;
+    text-align: center;
+
+    h1, h2, h3, h4, h5, p, a {
+        color: $text;
+    }
+
+    input, textarea, ::placeholder {
+        background-color: $blue;
+        color: $text;
+        border-color: $text;
+    }
+
+    .column.is-one-half {
+        padding-bottom: 0;
+    }
+
+    .ReviewForm {
+        @include tablet {
+        padding-top: 4rem;
+        padding-bottom: 12rem;
+        }
+    }
+}
