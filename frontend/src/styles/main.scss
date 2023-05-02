@@ -7,15 +7,17 @@
 @import 'hero';
 @import 'recommendeddishes';
 @import 'AboutChefPage';
+@import 'messagecontainerform';
 
 body {
     font-family: 'Cormorant Garamond', serif;
 
-    p,
-    a,
-    h4,
-    button {
+    p, a, h4, button, label, input, textarea{
         font-family: 'Raleway', sans-serif;
+    }
+
+    label.label {
+        font-weight: 600;
     }
 
     .content h1 {

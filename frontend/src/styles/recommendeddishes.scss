@@ -2,7 +2,11 @@
 
 .RecommendedDishes {
     background-color: $dark-blue;
-    
+
+    @include touch {
+        padding-inline: 0;
+    }
+
     .columns {
         align-items: center;
     }
