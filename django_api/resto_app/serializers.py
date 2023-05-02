@@ -25,13 +25,22 @@ class SendMessageSerializer(serializers.Serializer):
     subject = serializers.CharField(required=True)
     message_text = serializers.CharField(required=True)
     
-    # send_mail(
-    #     'Asunto del correo electrónico',
-    #     f'Nombre: {name}\nDirección: {address}\nCorreo: {email}\nTeléfono: {phone}\nAsunto: {subject}\nMensaje: {message_text}',
-    #     'restaurantetestapp@gmail.com',
-    #     ['hernan.rvera@outlook.com'],
-    #     fail_silently=False,
-    # )
+    def create(self, validated_data):
+        send_mail(
+            validated_data['subject'],
+            f'Nombre: {validated_data["name"]}\nDirección: {validated_data["address"]}\nCorreo: {validated_data["email"]}\nTeléfono: {validated_data["phone"]}\nMensaje: {validated_data["message_text"]}',
+            validated_data["email"],
+            ['restaurantetestapp@gmail.com'],
+            fail_silently=False,
+        )
+        send_mail(
+            'Opinión',
+            '¡Gracias por dejarnos tu opinión!\nEsperamos que vuelvas pronto.\n\nhttps://testingwebap.wixsite.com/testrestaurant',
+            'restaurantetestapp@gmail.com',
+            [validated_data["email"]],
+            fail_silently=False,
+        )
+        return validated_data
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
