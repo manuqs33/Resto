@@ -64,6 +64,33 @@ class JobApplicationSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class JobApplicationMailSerializer(serializers.Serializer):
+    name = serializers.CharField(required=True)
+    surname = serializers.CharField(required=True)
+    email = serializers.EmailField(required=True)
+    phone = serializers.CharField(required=True)
+    position = serializers.PrimaryKeyRelatedField(required=True, queryset=JobOpening.objects.all(), source="jobopening")
+    interview_date = serializers.DateTimeField(required=True)
+    cv_link = serializers.CharField(required=True)
+
+    def create(self, validated_data):
+        send_mail(
+            f'CV - {validated_data["jobopening"]}',
+            f'Nombre: {validated_data["name"]}\nApellido: {validated_data["surname"]}\nCorreo: {validated_data["email"]}\nTeléfono: {validated_data["phone"]}\nFecha Disponible: {validated_data["interview_date"]}\nCV link: {validated_data["cv_link"]}',
+            validated_data["email"],
+            ['restaurantetestapp@gmail.com'],
+            fail_silently=False,
+        )
+        send_mail(
+            f'CV - {validated_data["jobopening"]}',
+            '¡Gracias por enviarnos tu CV!\nAlguien de nuestro equipo se pondrá en contacto con vos luego de analizarlo.\n\nNo dejes de chequear nuuestras nuevas ofertas en: https://testingwebap.wixsite.com/testrestaurant',
+            'restaurantetestapp@gmail.com',
+            [validated_data["email"]],
+            fail_silently=False,
+        )
+        return validated_data
+
+
 class JobOpeningSerializer(serializers.ModelSerializer):
 
     class Meta:

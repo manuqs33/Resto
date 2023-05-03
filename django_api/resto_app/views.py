@@ -2,7 +2,8 @@ from .serializers import (
     MessageSerializer,
     SendMessageSerializer, 
     EmployeeSerializer, 
-    JobApplicationSerializer, 
+    JobApplicationSerializer,
+    JobApplicationMailSerializer, 
     JobOpeningSerializer, 
     ReviewSerializer, 
     DishSerializer,
@@ -63,8 +64,20 @@ class DishViewSet(ModelViewSet):
 
 class JobApplicationViewSet(ModelViewSet):
     queryset = JobApplication.objects.all()
-    serializer_class = JobApplicationSerializer
     http_method_names = ['get', 'post', 'put']
+
+    def get_serializer_class(self):
+        if self.action == "create":
+            return JobApplicationMailSerializer
+        else:
+            return JobApplicationSerializer
+
+    @action(detail=False, methods=['post'])
+    def perform_create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = serializer.create(serializer.validated_data)
+        return Response(serializer.data)
 
 
 class JobOpeningViewSet(ModelViewSet):
