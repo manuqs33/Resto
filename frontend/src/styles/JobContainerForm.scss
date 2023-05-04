@@ -1,0 +1,32 @@
+@import 'colors.scss';
+
+.JobFormContainer {
+    background-color: $beige;
+
+    /* .columns {
+        align-items: center;
+        justify-content: center;
+    } */
+    section.section {
+        @include tablet {
+            padding-inline: 3rem;
+        }
+    }
+    .content {
+        text-align: center;
+        h1, h2, h3, h4, h5, p, a {
+            color: $dark-blue;
+        }
+
+    }
+
+    .center-container {
+        justify-content: center;
+    }
+    /* .JobForm {
+        @include desktop {
+        width: 60%;
+        margin: 0 auto;
+        }
+    } */
+}

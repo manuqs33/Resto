@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export function JobCards() {
-    const [jobopenings, setJobOpenings] = useState([]);
-
-    useEffect(() => {
-        async function fetchJobOpenings() {
-            const response = await axios.get('http://127.0.0.1:8000/job_openings');
-            setJobOpenings(response.data);
-        };
-
-        fetchJobOpenings();
-    }, []);
+export function JobCards({jobopenings}) {
 
     return (
         <section className="section JobCards">
