@@ -1,0 +1,29 @@
+@import 'colors';
+
+.JobCards {
+    background-color: $blue;
+
+    @include touch {
+        padding-inline: 0;
+    }
+
+    .columns {
+        align-items: center;
+    }
+    .content {
+        text-align: center;
+        h1, h2, h3, h4, h5, p, a {
+            color: $text;
+        }
+
+    }
+    .card-content{
+        padding-bottom: 5rem;
+        h1, h3, p, a {
+            color: $dark-blue;
+        }
+    }
+    .card {
+        background-color: $beige;
+    }
+}

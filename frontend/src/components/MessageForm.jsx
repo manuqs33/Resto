@@ -21,9 +21,9 @@ export function MessageForm() {
     const successMessage = "Su mensaje se ha enviado con éxito."
 
     return (
-        <form className="message-form" onSubmit={handleSubmit}>
+        <form className="MessageForm" onSubmit={handleSubmit}>
             <div className="columns">
-                <div className="column is-one-half">
+                <div className="column">
                     <div className="field">
                         <label className="label">Nombre</label>
                         <div className="control">
@@ -38,7 +38,7 @@ export function MessageForm() {
                         </div>
                     </div>
                 </div>
-                <div className="column is-one-half">
+                <div className="column">
 
                     <div className="field">
                         <label className="label">Email</label>
