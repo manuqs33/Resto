@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,6 +15,7 @@ const INITIAL_STATE = {
 
 export function JobForm({ jobopenings }) {
     const [formData, setFormData] = useState(INITIAL_STATE);
+    const selectJobOpenings = [{id: '', position: 'Seleccione una posición'}, ...jobopenings]
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -32,13 +33,12 @@ export function JobForm({ jobopenings }) {
         }
 
         try {
-            await axios.post('http://127.0.0.1:8000/job_applications/"', formData)
+            await axios.post('http://127.0.0.1:8000/job_applications/', formData)
             setFormData(INITIAL_STATE)
-            setFormErrors({})
             toast.success('Su aplicación se ha procesado con éxito.', { autoClose: 1500, position: 'bottom-center' })
         } catch (error) {
             console.error(error)
-            toast.warning('Su aplicación se ha procesado con éxito.', { autoClose: 1500, position: 'bottom-center' })
+            toast.warning('Su aplicación ha arrojado un error. Vuelva a intentarlo', { autoClose: 1500, position: 'bottom-center' })
         }
     };
 
@@ -74,8 +74,8 @@ export function JobForm({ jobopenings }) {
                         <div className="field">
                             <div className="control">
                                 <select className="select" name="position" value={formData.position} onChange={handleChange}>
-                                    {jobopenings.map(jobopening => (
-                                        <option key={jobopening.id}  value={jobopening.id} >{jobopening.position}</option>
+                                    {selectJobOpenings.map(jobopening => (
+                                        <option key={jobopening.id}  value={jobopening.id}>{jobopening.position}</option>
                                     ))}
                                 </select>
                             </div>

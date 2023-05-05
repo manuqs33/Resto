@@ -4,7 +4,7 @@ import image from '../assets/anfitrion.webp';
 export function JobFormContainer({ jobopenings }) {
     return (
         <section className="JobFormContainer">
-            <div className="columns is-desktop is-gapless is-variable is-5">
+            <div className="columns is-desktop is-gapless">
                 <div className="column is-half-desktop">
                     <section className="section">
                         <div className="content">
