@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
 export function JobCards({jobopenings}) {
 
     return (
         <section className="section JobCards">
             <div className="container is-fluid">
                 <div className="content">
-                    <h1>Platos destacados</h1>
-                    <p>Frescura y calidad</p>
+                    <h1>Oportunidades laborales</h1>
+                    <p>Únete a nosotros</p>
                 </div>
-                <div className="columns">
+                <div className="columns is-variable is-5">
                     {jobopenings.map((jobopening) => (
                         <div className="column is-one-third" key={jobopening.id}>
                             <div className="card">
                                 <div className="card-image">
-                                    <figure className="image is-4by3">
+                                    <figure className="image">
                                         <img src={jobopening.image} alt={jobopening.position} />
                                     </figure>
                                 </div>

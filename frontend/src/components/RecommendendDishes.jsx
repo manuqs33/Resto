@@ -25,7 +25,7 @@ export function RecommendendDishes() {
                         <div className="column is-one-third" key={dish.id}>
                             <div className="card">
                                 <div className="card-image">
-                                    <figure className="image is-4by3">
+                                    <figure className="image">
                                         <img src={dish.image} alt={dish.name} />
                                     </figure>
                                 </div>

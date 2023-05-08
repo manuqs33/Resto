@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { JobCards } from "../components/JobCards"
-import { JobForm } from "../components/JobForm"
 import { JobFormContainer } from "../components/JobFormContainer"
 import axios from 'axios';
 
