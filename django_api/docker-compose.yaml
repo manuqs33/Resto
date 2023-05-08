@@ -1,0 +1,8 @@
+version: '3'
+services:
+  django:
+    build:
+      dockerfile: Dockerfile
+    image: resto-django
+    ports:
+      - "8000:8000"
