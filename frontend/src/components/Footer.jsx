@@ -3,7 +3,7 @@ export function Footer() {
         <footer className="footer">
             <div className="content has-text-centered">
                 <p>
-                    testingwebap@gmail.com
+                    restaurantetestapp@gmail.com
                 </p>
                 <p>
                     ©2023 por TestRestaurant.

@@ -1,0 +1,42 @@
+@import 'colors.scss';
+
+.MenusPage {
+    background-color: $text;
+
+    .container {
+        background-color: $blue;
+        padding-bottom: 4.5rem;
+    }
+
+    .card {
+        background-color: $dark-blue;
+    }
+
+    section.section {
+        padding-block: 0;
+    }
+
+   /*  .columns.is-multiline {
+        @include desktop {
+            padding-inline: 120px;
+        }
+    } */
+
+      .columns.is-multiline {
+        padding-inline: 32px;
+        @include desktop {
+        padding-inline: 64px;
+        }
+    }
+
+    .content {
+        text-align: center;
+        h1, h2, h3, h4, h5, p, a {
+            color: $text;
+        }
+    }
+
+    .title {
+        padding-top: 3rem;
+    }
+}
