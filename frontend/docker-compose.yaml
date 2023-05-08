@@ -1,10 +1,13 @@
-version: '3'
+version: '3.5'
 services:
   react:
     build:
       dockerfile: Dockerfile
+    command: npm start
     image: resto-react
     ports:
-      - "3000:3000"
+      - 3000:3000
+    tty: true
     volumes:
-      - ./client:/usr/src/app
+      - ./:/src
+    working_dir: /src
