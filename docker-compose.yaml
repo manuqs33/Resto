@@ -1,21 +1,29 @@
-version: '3'
+version: '3.8'
 services:
   django:
     build:
       context: ./django_api
-      dockerfile: Dockerfile
+      dockerfile: ./django_api/Dockerfile
     ports:
       - "8000:8000"
-    volumes:
-      - ./django:/usr/src/app
+    networks:
+      - resto-network
 
   react:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: ./frontend/Dockerfile
+    command: npm start
     ports:
-      - "3000:3000"
+      - "8009:3000"
+    tty: true
     volumes:
-      - ./client:/usr/src/app
+      - ./:/src
     depends_on:
       - django
+    networks:
+      - resto-network
+
+networks:
+  resto-network:
+    driver: bridge
