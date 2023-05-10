@@ -1,26 +1,16 @@
 version: '3.8'
 services:
   django:
-    build:
-      context: ./django_api
-      dockerfile: ./django_api/Dockerfile
-    ports:
-      - "8000:8000"
+    extends:
+      file: ./django_api/docker-compose.yaml
+      service: django
     networks:
       - resto-network
 
   react:
-    build:
-      context: ./frontend
-      dockerfile: ./frontend/Dockerfile
-    command: npm start
-    ports:
-      - "8009:3000"
-    tty: true
-    volumes:
-      - ./:/src
-    depends_on:
-      - django
+    extends:
+      file: ./frontend/docker-compose.yaml
+      service: react
     networks:
       - resto-network
 
