@@ -2,7 +2,14 @@ version: '3'
 services:
   django:
     build:
+      context: .
       dockerfile: Dockerfile
     image: resto-django
     ports:
       - "8000:8000"
+    networks:
+      - resto-network
+  
+networks:
+  resto-network:
+    external: true
